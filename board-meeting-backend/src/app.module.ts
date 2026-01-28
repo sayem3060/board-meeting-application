@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { databaseConfig } from './config/database.config';
 import { CommonModule } from './common/common.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -18,8 +19,9 @@ import { CommonModule } from './common/common.module';
       inject: [ConfigService],
       useFactory: () => databaseConfig(),
     }),
-    
+
     CommonModule,
+    UsersModule, 
   ],
   controllers: [AppController],
   providers: [AppService],
