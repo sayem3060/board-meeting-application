@@ -7,6 +7,7 @@ import { databaseConfig } from './config/database.config';
 import { CommonModule } from './common/common.module';
 import { UsersModule } from './modules/users/users.module';
 import { RolesModule } from './modules/roles/roles.module';
+import { PermissionsModule } from './modules/permissions/permissions.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { RolesModule } from './modules/roles/roles.module';
     CommonModule,
     UsersModule, 
     RolesModule,
+    PermissionsModule,
 
   ],
   controllers: [AppController],
