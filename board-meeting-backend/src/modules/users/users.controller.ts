@@ -30,4 +30,17 @@ export class UsersController {
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }
+
+  @Get('by-emails/:emails')
+  findByEmails(@Param('emails') emails: string) {
+    const emailsArray = emails.split(',');
+    return this.usersService.findByEmails(emailsArray);
+  }
+
+  @Get('by-phone-numbers/:phoneNumbers')
+  findByPhoneNumbers(@Param('phoneNumbers') phoneNumbers: string) {
+    const phoneNumbersArray = phoneNumbers.split(',');
+    return this.usersService.findByPhoneNumbers(phoneNumbersArray);
+  } 
+
 }

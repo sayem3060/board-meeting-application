@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, IsNull } from 'typeorm';
+import { Repository, IsNull, In } from 'typeorm';
 import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 
@@ -41,4 +41,21 @@ export class UsersService {
     }
     return null;
   }
+  async findByEmails(emails: string[]) {
+    return await this.usersRepository.find({
+      where: {
+        email: In(emails),
+        deleted_at: IsNull(),
+      },
+    });
+  }
+
+  async findByPhoneNumbers(phoneNumbers: string[]) {
+    return await this.usersRepository.find({
+      where: {
+        phone_number: In(phoneNumbers),
+        deleted_at: IsNull(),
+      },
+    });
+  } 
 }

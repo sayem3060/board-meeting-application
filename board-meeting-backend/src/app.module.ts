@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { databaseConfig } from './config/database.config';
 import { CommonModule } from './common/common.module';
 import { UsersModule } from './modules/users/users.module';
+import { RolesModule } from './modules/roles/roles.module';
 
 @Module({
   imports: [
@@ -22,6 +23,8 @@ import { UsersModule } from './modules/users/users.module';
 
     CommonModule,
     UsersModule, 
+    RolesModule,
+
   ],
   controllers: [AppController],
   providers: [AppService],
