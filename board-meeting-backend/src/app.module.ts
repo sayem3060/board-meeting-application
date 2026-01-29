@@ -8,6 +8,7 @@ import { CommonModule } from './common/common.module';
 import { UsersModule } from './modules/users/users.module';
 import { RolesModule } from './modules/roles/roles.module';
 import { PermissionsModule } from './modules/permissions/permissions.module';
+import { CommitteesModule } from './modules/committees/committees.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { PermissionsModule } from './modules/permissions/permissions.module';
     UsersModule, 
     RolesModule,
     PermissionsModule,
+    CommitteesModule,
 
   ],
   controllers: [AppController],

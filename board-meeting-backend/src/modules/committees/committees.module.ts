@@ -1,0 +1,13 @@
+import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { CommitteesService } from "./committees.service";
+import { CommitteesController } from "./committees.controller";
+import { Committee } from "./entities/committees.entity";   
+
+@Module({
+    imports: [TypeOrmModule.forFeature([Committee])],
+    controllers: [CommitteesController],
+    providers: [CommitteesService],
+    exports: [CommitteesService],
+})
+export class CommitteesModule {}
