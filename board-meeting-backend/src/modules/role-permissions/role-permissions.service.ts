@@ -1,7 +1,7 @@
 import { Injectable, BadGatewayException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository, IsNull } from "typeorm";   
-import { RolePermission } from "./entities/role-permission.entity";
+import { RolePermission } from "./entities/role-permissions.entity";
 import { AssignRolePermissionDto } from "./dto/assign-role-permission.dto";
 
 @Injectable()
