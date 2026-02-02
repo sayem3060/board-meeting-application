@@ -3,7 +3,7 @@ import { BaseEntity } from '../../../common/entities/base.entity';
 import { Role } from '../../roles/entities/roles.entity';   
 import { Permission } from '../../permissions/entities/permissions.entity';
 
-@Entity('role_permissions')
+@Entity('role-permissions')
 @Unique(['role', 'permission'])
 export class RolePermission extends BaseEntity {
 
