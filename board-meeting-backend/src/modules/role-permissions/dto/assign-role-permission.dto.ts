@@ -4,9 +4,9 @@ export class AssignRolePermissionDto {
 
     @IsUUID()
     @IsNotEmpty()
-    roleId: string;
+    role_id: string;
 
     @IsUUID()
     @IsNotEmpty()
-    permissionId: string;
+    permission_id: string;
 }
