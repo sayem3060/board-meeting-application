@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, IsNull, In } from 'typeorm';
 import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UsersService {
@@ -12,8 +13,12 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const user = this.usersRepository.create(createUserDto);
-    return await this.usersRepository.save(user);
+    const hasedPassword = await bcrypt.hash(createUserDto.password, 10);
+    const user = this.usersRepository.create({
+      ...createUserDto,
+      password: hasedPassword,
+    });
+    return await this.usersRepository.save(user); 
   }
 
   async findAll() {
@@ -41,19 +46,17 @@ export class UsersService {
     }
     return null;
   }
-  async findByEmails(emails: string[]) {
-    return await this.usersRepository.find({
-      where: {
-        email: In(emails),
-        deleted_at: IsNull(),
-      },
+
+  async findByEmail(email: string) {
+    return await this.usersRepository.findOne({
+    where: { email, deleted_at: IsNull() },
     });
   }
 
-  async findByPhoneNumbers(phoneNumbers: string[]) {
-    return await this.usersRepository.find({
+  async findByPhoneNumber(phone_number: string) {
+    return await this.usersRepository.findOne({
       where: {
-        phone_number: In(phoneNumbers),
+        phone_number,
         deleted_at: IsNull(),
       },
     });

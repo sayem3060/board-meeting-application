@@ -31,16 +31,16 @@ export class UsersController {
     return this.usersService.remove(id);
   }
 
-  @Get('by-emails/:emails')
-  findByEmails(@Param('emails') emails: string) {
-    const emailsArray = emails.split(',');
-    return this.usersService.findByEmails(emailsArray);
+  @Get('by-email/:email')
+  findByEmail(@Param('email') email: string) {
+    const emailArray = email.split(',');
+    return this.usersService.findByEmail(email);
   }
 
-  @Get('by-phone-numbers/:phoneNumbers')
-  findByPhoneNumbers(@Param('phoneNumbers') phoneNumbers: string) {
-    const phoneNumbersArray = phoneNumbers.split(',');
-    return this.usersService.findByPhoneNumbers(phoneNumbersArray);
+  @Get('by-phone-number/:phoneNumber')
+  findByPhoneNumber(@Param('phoneNumber') phoneNumber: string) {
+    const phoneNumberArray = phoneNumber.split(',');
+    return this.usersService.findByPhoneNumber(phoneNumber);
   } 
 
 }
