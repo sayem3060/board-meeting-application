@@ -40,14 +40,12 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   @Get('by-email/:email')
   findByEmail(@Param('email') email: string) {
-    const emailArray = email.split(',');
     return this.usersService.findByEmail(email);
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('by-phone-number/:phoneNumber')
   findByPhoneNumber(@Param('phoneNumber') phoneNumber: string) {
-    const phoneNumberArray = phoneNumber.split(',');
     return this.usersService.findByPhoneNumber(phoneNumber);
   } 
 
