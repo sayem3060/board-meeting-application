@@ -11,6 +11,7 @@ import { PermissionsModule } from './modules/permissions/permissions.module';
 import { CommitteesModule } from './modules/committees/committees.module';
 import { RolePermissionsModule } from './modules/role-permissions/role-permissions.module';
 import { UserRolesModule } from './modules/user-roles/user-roles.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -32,6 +33,8 @@ import { UserRolesModule } from './modules/user-roles/user-roles.module';
     CommitteesModule,
     RolePermissionsModule,
     UserRolesModule,
+    AuthModule,
+    
 
   ],
   controllers: [AppController],
