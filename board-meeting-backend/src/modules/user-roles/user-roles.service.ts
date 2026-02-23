@@ -12,7 +12,7 @@ export class UserRolesService {
   ) {}
 
   async assignRoleToUser(dto: AssignUserRoleDto) {
-    // Check if already assigned
+
     const exists = await this.userRoleRepository.findOne({
       where: {
         user: { id: dto.user_id },
@@ -25,7 +25,7 @@ export class UserRolesService {
       throw new BadRequestException('Role already assigned to this user');
     }
 
-    // Create new mapping
+
     const userRole = this.userRoleRepository.create({
       user: { id: dto.user_id },
       role: { id: dto.role_id },
