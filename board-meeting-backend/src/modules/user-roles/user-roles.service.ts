@@ -1,8 +1,8 @@
 import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, IsNull } from 'typeorm';
+import { Repository, IsNull, ILike } from 'typeorm';
 import { UserRole } from './entities/user-role.entity';
-import { AssignUserRoleDto } from './dto/assign-user-role.dto';
+import { AssignUserRoleDto, SingleUserMultipleRolesDto, MultipleUsersMultipleRolesDto } from './dto/assign-user-role.dto';
 
 @Injectable()
 export class UserRolesService {
